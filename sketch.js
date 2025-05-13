@@ -1,5 +1,6 @@
+// in cima definisco le variabili indipendenti
 const copie = 30;
-const texture_path = "./immagini/obama_face.jpg"; // con il . seleziono la cartella in cui si trova il file in cui sto lavorando, con./
+const texture_path = "./immagini/obama_face.jpg";
 
 //
 
