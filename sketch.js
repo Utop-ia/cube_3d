@@ -1,7 +1,25 @@
+const copie = 30;
+const texture_path = "./immagini/obama_face.jpg"; // con il . seleziono la cartella in cui si trova il file in cui sto lavorando, con./
+
+//
+
+let img_1;
+
+function preload() {
+  img_1 = loadImage(texture_path);
+}
+
+//
+
 let cubi = [];
-let copie = 30;
+
+/** @type {Graphics} */
+let g;
+
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
+
+  g = createGraphics(25, 25);
 
   //creo il mio dataset (lista di oggetti)
   for (let i = 0; i < 100; i++) {
@@ -21,13 +39,20 @@ function draw() {
   background(220);
   orbitControl();
 
+  g.background(220);
+  g.textAlign(CENTER);
+  g.textSize(g.height * 1.4);
+  g.text("Z", g.width / 2, g.height);
+
   // visualizzo il mio dataset (i miei oggetti)
   for (let cubo of cubi) {
     push();
     translate(cubo.x, cubo.y, cubo.z);
     strokeWeight(cubo.strokesize);
-    stroke(cubo.color);
-    noFill();
+    noStroke();
+    //stroke(cubo.color);
+    //noFill();
+    texture(g);
     box(cubo.size);
     pop();
   }
